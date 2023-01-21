@@ -31,15 +31,44 @@ include_once("navbar.php");
                                 <input type="text" name="description[]" class="form-control" placeholder="description"style=" border-color: #ed008c;">
                             </div>
                             <div class="form-group mb-3">
-                                <label for="statut">Statut</label>
-                                <select class="form-select" aria-label="Default select example" name="statut[]"style=" border-color: #ed008c;">
-                                    <option value="1" selected>Active</option>
-                                    <option value="0">Résilié</option>
+                                <label for="statut">Catégorie</label>
+                                <select class="form-select" aria-label="Default select example" name="categorie[]"style=" border-color: #ed008c;">
+                                    <option value="PFEMMES" selected>PARFUMS POUR FEMMES</option>
+                                    <option value="PHOMMES">PARFUMS POUR HOMMES</option>
+                                    <option value="LOTIONS" selected>LOTIONS POUR LE CORPS</option>
+                                    <option value="AUTRES">AUTRES PRODUITS PARFUMES</option>
+                                    <option value="COFFRETS" selected>COFFRETS CADEAUX</option>
+                                    <option value="YEUX">YEUX</option>
+                                    <option value="VISAGE">VIQSAGE</option>
+                                    <option value="ONGLES" selected>ONGLES</option>
+                                    <option value="LEVRES">LEVRES</option>
+                                    <option value="POUTILS" selected>PINCEAUX ET OUTILS</option>
+                                    <option value="SHAMPOINGS">SHAMPOINGS</option>
+                                    <option value="APRES" selected>APRES SHAMPOINGS</option>
+                                    <option value="COLORATIONS">COLORATIONS</option>
+                                    <option value="OUTILS" selected>OUTILS ET BROSSES</option>
+                                    <option value="NETTOYANTS">NETTOYANTS</option>
+                                    <option value="SERUMS" selected>SERUMS ET NETTOYANTS</option>
+                                    <option value="MASQUES">MASQUES</option>
+                                    <option value="PPROBLEMES">PEAUX A PROBLEMES</option>
+                                    <option value="CREMES">CREMES HYDRATANTES</option>
+                                    <option value="OUTILS">OUTILS</option>
+                                    <option value="CORPS">CORPS</option>
+                                    <option value="PIEDS">PIEDS</option>
+                                    <option value="HYGIENE">HYGIENE INTIME</option>
+                                    <option value="ENFANTS">ENFANTS</option>
+                                    <option value="MAINS">MAINS</option>
+                                    <option value="BRUMES">BRUMES PARFUMES</option>
+                                 
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="prix">prix*</label>
                                 <input type="number" name="prix[]" class="form-control" placeholder="prix" style=" border-color: #ed008c;">
+                            </div>
+                            <div class="form-group">
+                                <label for="prix">Quantité</label>
+                                <input type="number" name="quantite[]" class="form-control" placeholder="qauntité" style=" border-color: #ed008c;">
                             </div>
                         </div>
                         <div class="form-group2">

@@ -14,7 +14,7 @@ include_once("navbar.php");
      
       <div class="row" style="margin-top: 30px;">
       <?php foreach ($produit as $produit): ?>
-        <div class="col-md-3 py-3 py-md-0">
+        <div class="col-md-3 py-3 py-md-0" style="margin-bottom:22px;">
           <div class="card">
           <?php echo '<img class="imgfluid" src="data:image/jpeg;base64,' . base64_encode($produit["image"]) . '" />'; ?>
             <div class="card-body">

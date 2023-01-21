@@ -19,7 +19,7 @@
 <body>
         <!-- top navbar -->
         <div class="top-navbar">
-      <a class="navbar-brand" href="index.html" id="logo"><span id="span1">Glow</span>Guru</a>
+      <a class="navbar-brand" href="index.php" id="logo"><span id="span1">Glow</span>Guru</a>
       <?php if (isset($_SESSION['user'])) {
           echo ' <div class="icons">
 

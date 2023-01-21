@@ -1,5 +1,8 @@
 <?php 
 session_start();
+if(!isset($_SESSION['user'])){
+    header("location:index.php");
+}
 include_once("productClass.php");
 $test=new product;
 $produit=$test->getProduct();
@@ -90,8 +93,8 @@ if (isset($_GET["a"])) {
                     <div class="col-md-3">
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <h3 class="fs-2">720</h3>
-                                <p class="fs-5">Products</p>
+                                <h3 class="fs-2"><?php echo count($produit) ?></h3>
+                                <p class="fs-5">Produits</p>
                             </div>
                             <i class="fas fa-gift fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                         </div>
@@ -140,7 +143,7 @@ if (isset($_GET["a"])) {
                                     <th scope="col" width="50">#</th>
                                     <th scope="col">Produit</th>
                                     <th scope="col">image</th>
-                                    <th scope="col">Price</th>
+                                    <th scope="col">Prix</th>
                                     <th scope="col">quantité</th>
                                     <th>Action</th>
                                    
@@ -151,13 +154,13 @@ if (isset($_GET["a"])) {
                                 <tr>
                                     <th scope="row">1</th>
                                     <td><?php echo $produit["name"]; ?></td>
-                                    <td> <?php echo '<img class="imgfluid" src="data:image/jpeg;base64,' . base64_encode($produit["image"]) . '" />'; ?></td>
-                                    <td><?php echo $produit["prix"]; ?></td>
-                                    <td><?php echo $produit["statut"]; ?></td>
-                                     <td><div class="row">
-                                     <a class="btn "href="dashbord.php?a=supprimer&id=<?php echo $produit["id"] ?>" style="color:#ed008c;">Supprimer</a>
-                                     <a class="btn"href="update.php?a=modifier&id=<?php echo $produit["id"] ?>"style="color:blue;">modifier</a>
-                                     </div> </td>
+                                    <td><?php echo '<img class="imgfluid" src="data:image/jpeg;base64,' . base64_encode($produit["image"]) . '" style="width:20%;border-radius:40%;margin:0;"/>'; ?></td>
+                                    <td><?php echo $produit["prix"]; ?>$</td>
+                                    <td>6</td>
+                                     <td><form class="row">
+                                     <a class="btn "href="dashbord.php?a=supprimer&id=<?php echo $produit["id"] ?>" style="color:#ed008c;"></a>
+                                     <a class="btn"href="update.php?a=modifier&id=<?php echo $produit["id"] ?>"style="color:blue;"><i class="bi bi-pencil" style="color:#000;"></i></a>
+                            </form> </td>
             
                                 </tr>
                                 <?php endforeach; ?>

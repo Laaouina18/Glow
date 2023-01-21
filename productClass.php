@@ -65,8 +65,9 @@ class product
                 foreach ($_POST['name'] as $key => $name) {
                     $data[$key]['name'] = $name;
                     $data[$key]['description'] = $_POST['description'][$key];
-                    $data[$key]['statut'] = $_POST['statut'][$key];
+                    $data[$key]['categorie'] = $_POST['categorie'][$key];
                     $data[$key]['prix'] = $_POST['prix'][$key];
+                    $data[$key]['quantite'] = $_POST['quantite'][$key];
                 }
                 // loop through the image array
                 foreach ($_FILES['image']['tmp_name'] as $key => $image) {
@@ -89,12 +90,13 @@ class product
 
         foreach ($data as $product) {
           
-            $stmt =$db->connect()->prepare("INSERT INTO produit(name,image,description,statut,prix) VALUES (:name,:image,:description,:statut,:prix)");
+            $stmt =$db->connect()->prepare("INSERT INTO produit(name,image,description,categorie,prix,quantite) VALUES (:name,:image,:description,:categorie,:prix,quantite)");
             $stmt->bindParam(':name', $product['name'], PDO::PARAM_STR);
             $stmt->bindParam(':image', $product['image'], PDO::PARAM_STR);
             $stmt->bindParam(':description', $product['description'], PDO::PARAM_STR);
-            $stmt->bindParam(':statut', $product['statut'], PDO::PARAM_STR);
+            $stmt->bindParam(':categorie', $product['categorie'], PDO::PARAM_STR);
             $stmt->bindParam(':prix', $product['prix'], PDO::PARAM_STR);
+            $stmt->bindParam(':quantite', $data['quantite'], PDO::PARAM_STR);
             $stmt->execute();
             // $stmt->close();
             $stmt = null;
@@ -141,14 +143,15 @@ class product
     static function update($data) {
         $db = new Database();
         $conn=$db->connect();
-        $stmt = $conn->prepare("UPDATE produit SET image=:image,name =:name,description =:description,prix=:prix,statut=:statut WHERE id = :id");
+        $stmt = $conn->prepare("UPDATE produit SET image=:image,name =:name,description =:description,prix=:prix,quantite=:quantite,categorie=:categorie WHERE id = :id");
         $stmt->bindParam(':id', $data['id'], PDO::PARAM_STR);
 
         $stmt->bindParam(':name', $data['name'], PDO::PARAM_STR);
         $stmt->bindParam(':image', $data['image'], PDO::PARAM_STR);
         $stmt->bindParam(':description', $data['description'], PDO::PARAM_STR);
         $stmt->bindParam(':prix', $data['prix'], PDO::PARAM_STR);
-        $stmt->bindParam(':statut', $data['statut'], PDO::PARAM_STR);
+        $stmt->bindParam(':quantite', $data['quantite'], PDO::PARAM_STR);
+        $stmt->bindParam(':categorie', $data['categorie'], PDO::PARAM_STR);
         if ($stmt->execute()) {
 
             return 'ok';
