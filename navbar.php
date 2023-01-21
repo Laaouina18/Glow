@@ -1,5 +1,6 @@
 
-<?php  include_once("header.php")?>
+<?php
+include_once("header.php");?>
 
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg" id="navbar">
@@ -74,9 +75,10 @@
                   <li><a class="dropdown-item" href="#">BRUMES PARFUMÉES</a></li>
                 </ul>
               </li>
-             
-              <li><a class="nav-link " href="dashbord.php" id="navbar" role="button" aria-expanded="false"><i class="fas fa-user-secret me-2"></i> <?php if (isset($_SESSION['user'])) {
-                echo ' Dashbord';   }?></a></li>
+              <?php if (isset($_SESSION['user'])) { ?>
+              <li><a class="nav-link " href="dashbord.php" id="navbar" role="button" aria-expanded="false"><i class="fas fa-user-secret me-2"></i>
+               <?php echo ' Dashbord';  ?> </a></li>
+              <?php }  ?>
            
             </ul>
             <form class="d-flex" id="search">

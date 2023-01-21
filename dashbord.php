@@ -1,49 +1,16 @@
 <?php 
-class Database {
-    private $host = "localhost";
-    private $dbname = "glow";
-    private $username = "root";
-  
-    private $conn;
-    public function connect() {
-      try {
-        $this->conn = new PDO("mysql:host=$this->host;dbname=$this->dbname", $this->username, "");
-        $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      } catch(PDOException $e) {
-        die("Connection failed: " . $e->getMessage());
-      }
-      return $this->conn;
-    }
-  }
-class Product {
-    private $db;
-
-    public function __construct() {
-        $conn = new Database();
-        $this->db = $conn->connect();
-      }
-    public function create($name, $description, $quantity, $photo) {
-        $stmt = $this->db->prepare("INSERT INTO produit (image,name, description, quantite,prix) VALUES (?, ?, ?, ?,?)");
-        $stmt->execute([$name, $description, $quantity, $photo]);
-    }
-
-    public function read($id) {
-        $stmt = $this->db->prepare("SELECT * FROM produit WHERE id =$id");
-        $stmt->execute([$id]);
-        return $stmt->fetch();
-    }
-
-    public function update($id, $name, $description, $quantity, $photo) {
-        $stmt = $this->db->prepare("UPDATE produit SET name = ?, description = ?, quantity = ?, photo = ? WHERE id = $id");
-        $stmt->execute([$name, $description, $quantity, $photo, $id]);
-    }
-
-    public function delete($id) {
-        $stmt = $this->db->prepare("DELETE FROM products WHERE id = $id");
-        $stmt->execute([$id]);
+session_start();
+include_once("productClass.php");
+$test=new product;
+$produit=$test->getProduct();
+if (isset($_GET["a"])) {
+    if ($_GET["a"] == "supprimer") {
+        $id = $_GET["id"];
+        $sup = new product;
+        $sup->deleteProduct($id);
+        header("location:dashbord.php");
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -111,6 +78,7 @@ class Product {
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 
                                 <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                                <li>  <a href="ajouter.php" class="dropdown-item" >Ajouter Produit</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -162,29 +130,37 @@ class Product {
                 </div>
 
                 <div class="row my-5">
-                    <h3 class="fs-4 mb-3">Recent Orders</h3>
+                 
+                    <h3 class="fs-4 mb-3">Les produits</h3>
+                
                     <div class="col">
                         <table class="table bg-white rounded shadow-sm  table-hover">
                             <thead>
                                 <tr>
                                     <th scope="col" width="50">#</th>
-                                    <th scope="col">Product</th>
+                                    <th scope="col">Produit</th>
                                     <th scope="col">image</th>
                                     <th scope="col">Price</th>
-                                    <th scope="col">quantite</th>
-                                    <th scope="col">description</th>
+                                    <th scope="col">quantité</th>
+                                    <th>Action</th>
+                                   
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php foreach ($produit as $produit): ?>
                                 <tr>
                                     <th scope="row">1</th>
-                                    <td>Television</td>
-                                    <td>Jonny</td>
-                                    <td>$1200</td>
-                                    <td>Jonny</td>
-                                    <td>$1200</td>
+                                    <td><?php echo $produit["name"]; ?></td>
+                                    <td> <?php echo '<img class="imgfluid" src="data:image/jpeg;base64,' . base64_encode($produit["image"]) . '" />'; ?></td>
+                                    <td><?php echo $produit["prix"]; ?></td>
+                                    <td><?php echo $produit["statut"]; ?></td>
+                                     <td><div class="row">
+                                     <a class="btn "href="dashbord.php?a=supprimer&id=<?php echo $produit["id"] ?>" style="color:#ed008c;">Supprimer</a>
+                                     <a class="btn"href="update.php?a=modifier&id=<?php echo $produit["id"] ?>"style="color:blue;">modifier</a>
+                                     </div> </td>
+            
                                 </tr>
-                                
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>

@@ -1,27 +1,38 @@
+<?php
+include_once("productCalass.php");
+if (isset($_POST['submit'])) {
+    $createUser = new User();
+    $createUser->register();
+}
+include("navbar.php");
 
+?>
 
-    <?php include("navbar.php") ?>
-   <div class="container" id="login" style="margin-bottom:30%;">
-    <div class="row">
-        <div class="col-md-4 py-3 py-md-0" id="side1">
-            <h3 class="text-center">Register</h3>
-        </div>
-        <div class="col-md-8 py-3 py-md-0" id="side2">
-            <h3 class="text-center">Create Produit</h3>
-            <div class="input2 text-center ">
-            <input type="name" placeholder="Name">
-            <input type="text" placeholder="Categorie">
-            <input type="text" placeholder="Sous catégorie">
-            <input type="text" placeholder="Prix achat">
-            <input type="text" placeholder="Prix Final">
-            <input type="text" placeholder="quantite">
+<div class="container" style="margin-top: 10%; margin-bottom:10%;">
+    <div class="row my-4">
+        <div class="col-md-1- mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center">Inscription</h3>
+                </div>
+                <div class="card-body bg-light">
+                    <form method="post" class="mr-1">
+                        <div class="form-group">
+                            <label for="email">email</label>
+                            <input type="text" name="email" placeholder="email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="pass">pass</label>
+                            <input type="password" name="pass" placeholder="pass" class="form-control">
+                        </div>
+                        <button name="submit" class="btn btn-sm btn-warning">Inscription</button>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <a href="login" class="btn btn-link">Connexion</a>
+                </div>
             </div>
-            <p class="text-center" id="btnlogin"><a href="#">Enregistrer</a></p>
         </div>
-
     </div>
-   </div>
-<?php include_once("footer.php")?>
-
-
-
+</div>
+<?php include_once("footer.php") ?>
