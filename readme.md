@@ -16,3 +16,4 @@
 
 
 ## LES PRODUITS
+<img src="/images/4.png">
