@@ -39,23 +39,20 @@ if(isset($_POST["submit"])){
 }
 include_once("navbar.php");
  ?>
-<div class="container" style="margin-right: 0px; margin-top:8%;  margin-bottom:8%;">
+<div class="container" >
     <div class="row my-4">
         <div class="col-md-8 mx-auto">
-            <div class="card">
-                <div class="card-header text-center"><a href="#"
-                        class="btn btn-sm btn-secondary mr-2 mb-2"><i class="fa fa-home"></i></a>Ajouter un Product
-                </div>
-                <div>
+           <h1 class="text-center">Modifier Produit</h1>
+        <div>
                     <form method="post" enctype="multipart/form-data" id="form-1">
                         <div class="form-fieldset">
                             <div class="form-group">
-                                <label for="name">name</label>
-                                <input type="text" name="name" class="form-control" value="<?php echo $produit["name"] ?>"placeholder="name">
+                                <label for="name">Name</label>
+                                <input type="text" name="name" class="form-control" value="<?php echo $produit["name"] ?>"placeholder="name"style=" border-color: #ed008c;">
                             </div>
                             <div class="form-group">
-                                <label for="image">image</label>
-                                <input type="file"  id="image" class="form-control" placeholder="image"name="image">
+                                <label for="image">Image</label>
+                                <input type="file"  id="image" class="form-control" placeholder="image"name="image"style=" border-color: #ed008c;">
                             </div>
                             <div class="form-group mb-3">
                                 <label for="statut">Catégorie</label>
@@ -90,20 +87,23 @@ include_once("navbar.php");
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="description">description*</label>
-                                <input type="text" name="description" class="form-control" value="<?php echo $produit["description"] ?>" >
+                                <label for="description">Description</label>
+                                <input type="text" name="description" class="form-control" value="<?php echo $produit["description"] ?>" style=" border-color: #ed008c;">
                             </div>
                             <div class="form-group">
-                                <label for="prix">prix*</label>
-                                <input type="number" name="prix" class="form-control" value="<?php echo $produit["prix"] ?>" name="prix">
+                                <label for="prix">Prix</label>
+                                <input type="number" name="prix" class="form-control" value="<?php echo $produit["prix"] ?>" name="prix"style=" border-color: #ed008c;">
                             </div>
                             <div class="form-group">
                                 <label for="prix">Quantité</label>
-                                <input type="number" class="form-control" value="<?php echo $produit["quantite"] ?>" name="quantite">
+                                <input type="number" class="form-control" value="<?php echo $produit["quantite"] ?>" name="quantite"style=" border-color: #ed008c;">
                             </div>
                         </div>
                         <div class="form-group2">
-                            <button type="submit" class="btn btn-primary" name="submit">Valider</button>
+                            <button type="submit" class="btn btn-primary" name="submit"style=" color: white;
+    background-color:#ed008c;
+    
+    margin:20px;">Valider</button>
     
                         </div>
                     </form>
@@ -111,6 +111,6 @@ include_once("navbar.php");
                 </div>
             </div>
         </div>
-    </div>
+    
 </div>
 <?php include_once("footer.php")?>

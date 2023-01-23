@@ -3,6 +3,9 @@ session_start();
 if(!isset($_SESSION['user'])){
     header("location:index.php");
 }
+
+$user = json_decode(json_encode($_SESSION['user']), true);
+
 include_once("productClass.php");
 $test=new product;
 $produit=$test->getProduct();
@@ -21,7 +24,7 @@ if (isset($_GET["a"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electronic Shop</title>
+    <title>GLOWGURU</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <!-- bootstrap links -->
@@ -76,11 +79,12 @@ if (isset($_GET["a"])) {
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user me-2"></i>Nouhaila
+           
+                                <i class="fas fa-user me-2"></i><?php echo $user['name'];?>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 
-                                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                                <li><a class="dropdown-item" href="logout.php"><img src="./images/register.png" alt="" width="18px">Logout</a></li>
                                 <li>  <a href="ajouter.php" class="dropdown-item" >Ajouter Produit</a></li>
                             </ul>
                         </li>
@@ -156,11 +160,14 @@ if (isset($_GET["a"])) {
                                     <td><?php echo $produit["name"]; ?></td>
                                     <td><?php echo '<img class="imgfluid" src="data:image/jpeg;base64,' . base64_encode($produit["image"]) . '" style="width:20%;border-radius:40%;margin:0;"/>'; ?></td>
                                     <td><?php echo $produit["prix"]; ?>$</td>
-                                    <td>6</td>
-                                     <td><form class="row">
-                                     <a class="btn "href="dashbord.php?a=supprimer&id=<?php echo $produit["id"] ?>" style="color:#ed008c;"></a>
-                                     <a class="btn"href="update.php?a=modifier&id=<?php echo $produit["id"] ?>"style="color:blue;"><i class="bi bi-pencil" style="color:#000;"></i></a>
+                                    <td><?php echo $produit["quantite"]?></td>
+                                     <td><form class="d-flex flex-wrap">
+                                        <div class="p-2"><a href="update.php?a=modifier&id=<?php echo $produit["id"] ?>"style="color:blue;"><img src="/images/update.png" style="width:20px;color:red;"></i></a></div>
+                                        <div  class="p-2"><a href="dashbord.php?a=supprimer&id=<?php echo $produit["id"] ?>" style="color:#ed008c;"><img src="/images/DELETE.png" alt="" style="width:20px;color:blue;"></a></div>
+                                     
+                                     
                             </form> </td>
+                            
             
                                 </tr>
                                 <?php endforeach; ?>

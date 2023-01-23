@@ -56,7 +56,7 @@ class product
     {
         if (isset($_POST['submit'])) {
             // Check if any of the form fields are empty
-            if (empty($_POST['name']) && empty($_POST['description']) && empty($_POST['prix']) || empty($_FILES['image'])) {
+            if (empty($_POST['name']) && empty($_POST['description']) && empty($_POST['prix'])&& empty($_POST['quantite']) || empty($_FILES['image'])) {
                 // Display error message
                 echo "All form fields are required. Please fill out the form and try again.";
             } else {
@@ -90,13 +90,13 @@ class product
 
         foreach ($data as $product) {
           
-            $stmt =$db->connect()->prepare("INSERT INTO produit(name,image,description,categorie,prix,quantite) VALUES (:name,:image,:description,:categorie,:prix,quantite)");
+            $stmt =$db->connect()->prepare("INSERT INTO produit(name,image,description,categorie,prix,quantite) VALUES (:name,:image,:description,:categorie,:prix,:quantite)");
             $stmt->bindParam(':name', $product['name'], PDO::PARAM_STR);
             $stmt->bindParam(':image', $product['image'], PDO::PARAM_STR);
             $stmt->bindParam(':description', $product['description'], PDO::PARAM_STR);
             $stmt->bindParam(':categorie', $product['categorie'], PDO::PARAM_STR);
             $stmt->bindParam(':prix', $product['prix'], PDO::PARAM_STR);
-            $stmt->bindParam(':quantite', $data['quantite'], PDO::PARAM_STR);
+            $stmt->bindParam(':quantite', $product['quantite'], PDO::PARAM_STR);
             $stmt->execute();
             // $stmt->close();
             $stmt = null;

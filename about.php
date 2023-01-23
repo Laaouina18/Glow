@@ -1,19 +1,27 @@
-<?php include_once("navbar.php")?>
+
+<?php session_start();
+include_once("productClass.php");
+$test=new product;
+$id = $_GET["id"];
+$produit=$test->get($id);
+
+include_once("navbar.php")?>
     <div class="container" id="about">
         
         <hr>
-        <h1>Palette</h1> 
+        <h1><?php echo $produit["name"] ?></h1> 
         <hr>
         <div class="row" style="margin-top: 50px;">
             <div class="col-md-5 py-3 py-md-0">
                 <div class="card">
-                    <img src="./images/1391512.jpg" alt="">
+                <?php echo '<img class="imgfluid" src="data:image/jpeg;base64,' . base64_encode($produit["image"]) . '" />'; ?>
                 </div>
             </div>
             <div class="col-md-7 py-3 py-md-0">
-              <h1>300$</h1>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima fugit ad impedit libero quis. Ipsam totam accusantium non minima excepturi nemo doloremque, inventore dolores at aperiam voluptates voluptatem maiores odit. Unde dolorum similique facilis veritatis exercitationem excepturi sunt, non at quis deleniti! Mollitia quaerat temporibus reprehenderit neque esse unde minima sed illo, perferendis quidem eum voluptatem ipsam aliquam modi doloremque error. Odit amet veniam necessitatibus quis ad voluptate quidem laudantium, quia vitae quisquam dolorem deleniti temporibus reiciendis, rerum delectus quo cupiditate velit consequuntur neque eum est vero? Perspiciatis architecto provident illo sequi reprehenderit quasi excepturi hic sint perferendis, tempore cupiditate.</p>
-                <button style="color:pink;">Read More...</button>
+              
+              <h1><label for="">Prix:</label><?php echo $produit["prix"]?>$</h1>
+              
+                <p><?php echo $produit ["description"]?></p>
             </div>
         </div>
     </div>

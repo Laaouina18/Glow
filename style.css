@@ -558,6 +558,15 @@
 
 
 
+.hide{
+    display: none;
+}
+
+
+.show{
+    display: block;
+}
+
 
 /* newslater */
 #newslater{
@@ -603,21 +612,22 @@
     width:20%;
     margin:auto;
 }
-@media screen and (max-width:465px){
-    .input input{
-        width: 280px;
+
+
+@media screen and (max-width:600px){
+    #contact{
+display: none;
     }
-    #subscribe{
-        margin-top: 10px;
+    #num{
+        display: none;
     }
-}
-@media screen and (max-width:250px){
-    .input input{
-        width: 150px;
+    #c{
+        display: none;
     }
-    #subscribe{
-        width: 150px;
+    #i{
+        display: none;
     }
+
 }
 /* newslater */
 

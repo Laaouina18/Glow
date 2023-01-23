@@ -1,7 +1,10 @@
 
 <?php
 include_once("header.php");?>
-
+ <div class="d-flex justify-content-around">
+  <div style="text-align:center;"><img src="/images/tele.jpeg" alt="" style="width:22px;" id="i">
+  <div><h2 id="c">CONTACTEZ NOUS</h2><h3 id="num">05 66 77 88 33 22</h3></div></div> </div>
+ 
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg" id="navbar">
         <div class="container-fluid">
@@ -11,6 +14,7 @@ include_once("header.php");?>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item"><a class="nav-link"href="index.php">NOS PRODUITS</a></li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="categorie.php?cat=PARFUM" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   PARFUM
@@ -79,12 +83,13 @@ include_once("header.php");?>
               <li><a class="nav-link " href="dashbord.php" id="navbar" role="button" aria-expanded="false"><i class="fas fa-user-secret me-2"></i>
                <?php echo ' Dashbord';  ?> </a></li>
               <?php }  ?>
+              <li>  <div  id="search" >
+              <!-- <input class="form-floating" type="search" placeholder="Search" aria-label="Search" style="color:black;border-radius:1px solid black;"> -->
+              <input class="btn" name="search" id="search_input" type="search" onchange="search()" placeholder="search" value="" style="border-color:#ed008c;">
+              </div></li>
            
             </ul>
-            <form class="d-flex" id="search">
-              <input class="form-floating" type="search" placeholder="Search" aria-label="Search" style="color:black;border-radius:1px solid black;">
-              <button class="btn " type="submit">Search</button>
-            </form>
+          
           </div>
         </div>
       </nav>

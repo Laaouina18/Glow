@@ -73,7 +73,7 @@ include_once("navbar.php");
                         </div>
                         <div class="form-group2">
                             <button type="submit" class="btn btn-primary" name="submit" style=" color: white;
-    background-color:#ed008c;
+            background-color:#ed008c;
     width:20%;
     margin:20px;">Valider</button>
                             <button type="button" class="add-more btn btn-secondary"style=" color: white;
