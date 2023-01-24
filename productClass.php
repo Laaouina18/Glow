@@ -38,7 +38,8 @@ class User
                 'email' => $_POST['email'],
                 'pass' => $pass,
             );
-            $result = User::createUser($data);
+            $user = new user;
+            $result = $user->createUser($data);
             if($result === 'ok'){
                 header("location:login.php");
 
@@ -56,7 +57,7 @@ class product
     {
         if (isset($_POST['submit'])) {
             // Check if any of the form fields are empty
-            if (empty($_POST['name']) && empty($_POST['description']) && empty($_POST['prix'])&& empty($_POST['quantite']) || empty($_FILES['image'])) {
+            if (empty($_POST['name']) && empty($_POST['description']) && empty($_POST['prix'])&& empty($_POST['quantite']) && empty($_FILES['image'])) {
                 // Display error message
                 echo "All form fields are required. Please fill out the form and try again.";
             } else {

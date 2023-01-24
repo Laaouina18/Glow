@@ -20,19 +20,19 @@ include_once("navbar.php");
                         <div class="form-fieldset">
                             <div class="form-group">
                                 <label for="name">Nom</label>
-                                <input type="text" name="name[]" class=" form-control"placeholder="name" style=" border-color: #ed008c;">
+                                <input type="text" name="name[]" class=" form-control"placeholder="name" style=" border-color: #ed008c;"required>
                             </div>
                             <div class="form-group">
                                 <label for="image">Image</label>
-                                <input type="file" name="image[]" id="image" class="form-control" placeholder="image"style=" border-color: #ed008c;">
+                                <input type="file" name="image[]" id="image" class="form-control" placeholder="image"style=" border-color: #ed008c;" required>
                             </div>
                             <div class="form-group">
                                 <label for="description">Description</label>
-                                <input type="text" name="description[]" class="form-control" placeholder="description"style=" border-color: #ed008c;">
+                                <input type="text" name="description[]" class="form-control" placeholder="description"style=" border-color: #ed008c;" required>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="statut">Catégorie</label>
-                                <select class="form-select" aria-label="Default select example" name="categorie[]"style=" border-color: #ed008c;">
+                                <select class="form-select" aria-label="Default select example" name="categorie[]"style=" border-color: #ed008c;"required>
                                     <option value="PFEMMES" selected>PARFUMS POUR FEMMES</option>
                                     <option value="PHOMMES">PARFUMS POUR HOMMES</option>
                                     <option value="LOTIONS" selected>LOTIONS POUR LE CORPS</option>
@@ -64,11 +64,11 @@ include_once("navbar.php");
                             </div>
                             <div class="form-group">
                                 <label for="prix">prix*</label>
-                                <input type="number" name="prix[]" class="form-control" placeholder="prix" style=" border-color: #ed008c;">
+                                <input type="number" name="prix[]" class="form-control" placeholder="prix" style=" border-color: #ed008c;" required>
                             </div>
                             <div class="form-group">
                                 <label for="prix">Quantité</label>
-                                <input type="number" name="quantite[]" class="form-control" placeholder="qauntité" style=" border-color: #ed008c;">
+                                <input type="number" name="quantite[]" class="form-control" placeholder="qauntité" style=" border-color: #ed008c;"required>
                             </div>
                         </div>
                         <div class="form-group2">
@@ -90,6 +90,7 @@ include_once("navbar.php");
 </div>
 
 <script>
+    
     document.addEventListener("DOMContentLoaded", function () {
         // Clone the first form fieldset and add a button to remove it
         var formFieldset = document.querySelector(".form-fieldset").cloneNode(true);

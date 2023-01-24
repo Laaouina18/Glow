@@ -36,7 +36,8 @@ class User
   {
       if (isset($_POST['submit'])) {
           $data['email'] = $_POST['email'];
-          $result = User::login($data);
+      $user = new user;
+          $result = $user->login($data);
 
           // if($result->email === $_POST['email'] && password_verify($_POST['pass'],$result->pass)){
           if (isset($result) && $result->email === $_POST['email'] && password_verify($_POST['pass'], $result->pass)) {

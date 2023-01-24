@@ -39,20 +39,20 @@ if (isset($_GET["a"])) {
 <body>
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
-        <div class="bg-white" id="sidebar-wrapper">
+        <div class="bg-white " id="sidebar-wrapper">
             <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
                     class="fas fa-user-secret me-2"></i>Dashbord</div>
             <div class="list-group list-group-flush my-3">
-                <a href="index.php" class="list-group-item bg-transparent second-text active" style="color:#000;"><i
+                <a href="index.php" class="list-group-item bg-transparent  active" style="color:#000;"><i
                     class="fas fa-shopping-cart me-2"></i>PRODUITS</a>
-                <a href="#" class="list-group-item  bg-transparent second-text fw-bold">CHEVEUX</a>
-                <a href="#" class="list-group-item  bg-transparent second-text fw-bold">SOIN DE CORP</a>
-                <a href="#" class="list-group-item bg-transparent second-text fw-bold">SOIN DE PEAUX</a>
-                <a href="#" class="list-group-item  bg-transparent second-text fw-bold">MAQUIALLGES</a>
-                <a href="#" class="list-group-item  bg-transparent second-text fw-bold">PARFUMS</a>
-                <a href="#" class="list-group-item bg-transparent second-text fw-bold"><i
+                <a href="categorie.php?cat=SHAMPOINGS" class="list-group-item  bg-transparent  fw-bold">CHEVEUX</a>
+                <a href="categorie.php?cat=CORPS" class="list-group-item  bg-transparent  fw-bold">SOIN DE CORP</a>
+                <a href="categorie.php?cat=NETTOYANTS" class="list-group-item bg-transparent fw-bold">SOIN DE PEAUX</a>
+                <a href="#" class="list-group-item  bg-transparent  fw-bold">MAQUIALLGES</a>
+                <a href="categorie.php?cat=PFEMMES" class="list-group-item  bg-transparent  fw-bold">PARFUMS</a>
+                <a href="categorie.php?cat=VISAGE" class="list-group-item bg-transparent fw-bold"><i
                         class="fas fa-comment-dots me-2"></i>Chat</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                <a href="#" class="list-group-item list-group-item-action bg-transparent  fw-bold"><i
                         class="fas fa-map-marker-alt me-2"></i>Outlet</a>
                 <a href="logout.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Logout</a>
@@ -180,17 +180,10 @@ if (isset($_GET["a"])) {
         </div>
     </div>
     <!-- /#page-content-wrapper -->
-    </div>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        var el = document.getElementById("wrapper");
-        var toggleButton = document.getElementById("menu-toggle");
-
-        toggleButton.onclick = function () {
-            el.classList.toggle("toggled");
-        };
-    </script>
+ 
 </body>
 
 </html>
