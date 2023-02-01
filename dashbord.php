@@ -154,9 +154,9 @@ if (isset($_GET["a"])) {
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php foreach ($produit as $produit): ?>
+                            <?php $i = 0; foreach ($produit as $produit): ?>
                                 <tr>
-                                    <th scope="row">1</th>
+                                    <th scope="row"><?php echo $i+1 ?></th>
                                     <td><?php echo $produit["name"]; ?></td>
                                     <td><?php echo '<img class="imgfluid" src="data:image/jpeg;base64,' . base64_encode($produit["image"]) . '" style="width:20%;border-radius:40%;margin:0;"/>'; ?></td>
                                     <td><?php echo $produit["prix"]; ?>$</td>
@@ -170,7 +170,7 @@ if (isset($_GET["a"])) {
                             
             
                                 </tr>
-                                <?php endforeach; ?>
+                                <?php $i++; endforeach; ?>
                             </tbody>
                         </table>
                     </div>

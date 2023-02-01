@@ -165,5 +165,6 @@ class product
 
 
         
-    }
+    };
+
 ?>
